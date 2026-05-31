@@ -1,4 +1,4 @@
-# Fullstack Coding Agent
+![OG Image](assets/1000097041.png)
 
 A CrewAI-powered agent that turns natural-language requirements into complete projects. Describe what you want to build, and a **Senior Full Stack Developer** agent generates the files and saves them to `output/`.
 
