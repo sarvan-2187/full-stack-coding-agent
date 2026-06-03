@@ -1,8 +1,14 @@
-![OG Image](assets/1000097041.png)
+# Full Stack Coding Agent built by Sarvan Kumar
+
+<p align="center">
+  <img src="assets/1000097041.png" alt="OG Image" width="900">
+</p>
+
+<p align="center"><em>CrewAI-powered Full Stack Project Generator</em></p>
 
 A CrewAI-powered agent that turns natural-language requirements into complete projects. Describe what you want to build, and a **Senior Full Stack Developer** agent generates the files and saves them to `output/`.
 
-## Sample run
+## Sample Run
 
 This walkthrough uses the prompt:
 
@@ -12,49 +18,95 @@ Build a simple HTML Page for Sarvan Kumar He is a fullstack dev
 
 Run the agent with `python run.py`, paste the prompt above, and you should see output similar to the screenshots below.
 
-### 1. Enter your requirement
+---
+
+## 1. Enter Your Requirement
 
 The crew picks up your prompt and starts the task with the full generation instructions.
 
-![Enter requirement and crew start](assets/part-1.png)
+<p align="center">
+  <img src="assets/part-1.png" alt="Enter requirement" width="900">
+</p>
 
-### 2. Agent starts working
+<p align="center"><em>Figure 1: User enters a project requirement and the crew begins execution.</em></p>
+
+---
+
+## 2. Agent Starts Working
 
 The **Senior Full Stack Developer** agent receives the task and begins calling the **File Writer** tool. First file: `index.html`.
 
-![Agent started and first tool call](assets/part-2.png)
+<p align="center">
+  <img src="assets/part-2.png" alt="Agent started" width="900">
+</p>
 
-### 3. More files are written
+<p align="center"><em>Figure 2: The agent begins generating project files.</em></p>
 
-The agent continues generating project files -> `styles.css`, `package.json`, `requirements.txt`, and `README.md`.
+---
 
-![Additional file writer tool calls](assets/part-3.png)
+## 3. More Files Are Written
 
-### 4. Tools complete successfully
+The agent continues generating project files including `styles.css`, `package.json`, `requirements.txt`, and `README.md`.
+
+<p align="center">
+  <img src="assets/part-3.png" alt="More files written" width="900">
+</p>
+
+<p align="center"><em>Figure 3: Additional files are generated through File Writer tool calls.</em></p>
+
+---
+
+## 4. Tools Complete Successfully
 
 Each tool call confirms the file was saved under `output/`.
 
-![Tool execution completed](assets/part-4.png)
+<p align="center">
+  <img src="assets/part-4.png" alt="Tool completion" width="900">
+</p>
 
-### 5. Agent final answer
+<p align="center"><em>Figure 4: Generated files are successfully written to disk.</em></p>
+
+---
+
+## 5. Agent Final Answer
 
 The agent summarizes what was created:
 
-| File | Description |
-|------|-------------|
-| `index.html` | Portfolio page |
-| `styles.css` | Styles |
-| `package.json` | Project metadata (`sarvan-portfolio`) |
-| `requirements.txt` | Dependency file (none needed for this project) |
-| `README.md` | Generated project readme |
+| File               | Description                           |
+| ------------------ | ------------------------------------- |
+| `index.html`       | Portfolio page                        |
+| `styles.css`       | Styles                                |
+| `package.json`     | Project metadata (`sarvan-portfolio`) |
+| `requirements.txt` | Dependency file                       |
+| `README.md`        | Generated project readme              |
 
-![Agent final answer](assets/part-5.png)
+<p align="center">
+  <img src="assets/part-5.png" alt="Final answer" width="900">
+</p>
 
-### 6. Task and crew complete
+<p align="center"><em>Figure 5: The agent provides a summary of generated files.</em></p>
+
+---
+
+## 6. Task And Crew Complete
 
 Execution finishes and the script prints the success message.
 
-![Task and crew completion](assets/part-6.png)
+<p align="center">
+  <img src="assets/part-6.png" alt="Crew complete" width="900">
+</p>
+
+<p align="center"><em>Figure 6: Crew execution completes successfully.</em></p>
+
+---
+
+## 7. Generated Output
+
+<p align="center">
+  <img src="assets/output.png" alt="Generated output" width="900">
+</p>
+
+<p align="center"><em>Figure 7: Final generated website output.</em></p>
 
 Generated files land in:
 
@@ -67,27 +119,31 @@ output/
 └── README.md
 ```
 
-### 7. Output Image
+## How It Works
 
-![Generated Output](assets/output.png)
-
-## How it works
-
-```
-User requirement → Crew (agent + task) → LLM (OpenRouter) → FileWriterTool → output/
+```text
+User Requirement
+        ↓
+Crew (Agent + Task)
+        ↓
+LLM (OpenRouter)
+        ↓
+FileWriterTool
+        ↓
+output/
 ```
 
 1. You enter a project requirement at the prompt.
-2. A task is created with production-ready coding rules (no placeholders, use File Writer, save to `output/`).
-3. The coder agent plans the project and writes each file via the **File Writer** tool.
-4. When the crew finishes, your project is ready in `output/`.
+2. A task is created with production-ready coding rules.
+3. The coder agent plans the project and writes files through the File Writer tool.
+4. When the crew finishes, the project is available in `output/`.
 
-## Quick start
+## Quick Start
 
 ### Prerequisites
 
-- Python 3.10+
-- An [OpenRouter](https://openrouter.ai/) API key
+* Python 3.10+
+* An OpenRouter API key
 
 ### Install
 
@@ -106,7 +162,7 @@ pip install -r requirements.txt
 
 ### Configure
 
-Create a `.env` file in the project root:
+Create a `.env` file:
 
 ```env
 OPENROUTER_API_KEY=your_openrouter_api_key_here
@@ -115,55 +171,45 @@ BASE_URL=https://openrouter.ai/api/v1
 TEMPERATURE=0.2
 ```
 
-| Variable | Description |
-|----------|-------------|
-| `OPENROUTER_API_KEY` | Your OpenRouter API key |
-| `MODEL` | Model identifier (OpenRouter format) |
-| `BASE_URL` | OpenRouter API base URL |
-| `TEMPERATURE` | LLM temperature (default: `0.2`) |
-
-Do not commit `.env` to version control.
-
 ### Run
 
 ```bash
 python run.py
 ```
 
-## Project structure
+## Project Structure
 
 ```text
 agents/
-├── run.py           # Entry point — prompts for requirement and starts the crew
-├── agents.py        # Coder agent and LLM configuration
-├── tasks.py         # Task template for code generation
-├── tools.py         # FileWriterTool — writes files to output/
-├── assets/          # Sample run screenshots for this README
+├── run.py
+├── agents.py
+├── tasks.py
+├── tools.py
+├── assets/
 ├── requirements.txt
-├── .env             # API keys and model settings (not committed)
-└── output/          # Generated projects (created at runtime)
+├── .env
+└── output/
 ```
 
 ## Customization
 
-**Change the model** - update `MODEL` in `.env` to any OpenRouter-supported model.
-
-**Adjust agent behavior** - edit `agents.py` (role, goal, backstory) or `tasks.py` (coding standards and output rules).
-
-**Add tools** - define new tools in `tools.py` and register them on the agent in `agents.py`.
+* Change model via `.env`
+* Adjust agent behavior in `agents.py`
+* Modify generation rules in `tasks.py`
+* Add new tools in `tools.py`
 
 ## Dependencies
 
-- [CrewAI](https://github.com/joaomdmoura/crewAI) — multi-agent orchestration
-- [crewai_tools](https://github.com/joaomdmoura/crewai-tools) — optional tool ecosystem
-- [LiteLLM](https://github.com/BerriAI/litellm) — LLM provider abstraction
-- [python-dotenv](https://github.com/theskumar/python-dotenv) — environment variable loading
+* CrewAI
+* crewai_tools
+* LiteLLM
+* python-dotenv
 
 ## Troubleshooting
 
-- **Authentication errors** - verify `OPENROUTER_API_KEY` in `.env`.
-- **Empty or incomplete output** - try a more capable model or a more specific prompt.
-- **Files not saved** - check verbose logs; the agent must call the File Writer tool for each file.
+* Authentication errors → Verify API key.
+* Empty output → Use a better model or more detailed prompt.
+* Files not saved → Ensure File Writer tool is called.
 
 ## License
 
