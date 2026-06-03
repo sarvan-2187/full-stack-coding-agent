@@ -2,9 +2,9 @@
   <img src="assets/1000097041.png" alt="OG Image">
 </p>
 
-<p align="center"><em>CrewAI-powered Full Stack Project Generator</em></p>
+<p align="center"><em>Codrr: CrewAI-powered Full Stack Project Generator</em></p>
 
-A CrewAI-powered agent that turns natural-language requirements into complete projects. Describe what you want to build, and a **Senior Full Stack Developer** agent generates the files and saves them to `output/`.
+Codrr is a CrewAI-powered agent that turns natural-language requirements into complete projects. Describe what you want to build, and a **Senior Full Stack Developer** agent generates the files and saves them to `output/`.
 
 ## Sample Run
 
