@@ -1,7 +1,5 @@
-# Full Stack Coding Agent built by Sarvan Kumar
-
 <p align="center">
-  <img src="assets/1000097041.png" alt="OG Image" width="900">
+  <img src="assets/1000097041.png" alt="OG Image">
 </p>
 
 <p align="center"><em>CrewAI-powered Full Stack Project Generator</em></p>
